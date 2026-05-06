@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  
+  <!-- SEO -->
+  {% seo %}
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  
+  <!-- MathJax Configuration -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      <p class="site-description">{{ site.description }}</p>
+      <nav>
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/ideas/">Ideas</a>
+        <a href="{{ site.baseurl }}/theories/">Theories</a>
+        <a href="{{ site.baseurl }}/notes/">Notes</a>
+        <a href="{{ site.baseurl }}/ideas/_submissions/template">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: "%Y" }} Open Idea Repository. 
+         <a href="https://github.com/username/idea-repository">View on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

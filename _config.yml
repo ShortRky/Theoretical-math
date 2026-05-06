@@ -1,0 +1,50 @@
+# Site Configuration
+title: Open Idea Repository
+description: A collaborative knowledge library for mathematical theories, notes, and ideas
+baseurl: "/idea-repository"
+url: "https://username.github.io"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  math_engine: mathjax
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title/
+  theories:
+    output: true
+    permalink: /theories/:path/
+  notes:
+    output: true
+    permalink: /notes/:path/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      author: "anonymous"
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      category: "ideas"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .github/

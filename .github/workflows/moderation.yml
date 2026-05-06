@@ -1,0 +1,33 @@
+name: Content Moderation
+on:
+  pull_request:
+    paths:
+      - '_posts/**'
+      - '_theories/**'
+      - '_notes/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Check for spam patterns
+        run: |
+          # Check for common spam patterns
+          if grep -rE "(viagra|casino|bit\.ly|http://tinyurl)" _posts/ _theories/ _notes/ 2>/dev/null; then
+            echo "Potential spam detected"
+            exit 1
+          fi
+          
+      - name: Check for required front matter
+        run: |
+          # Ensure all markdown files have required front matter
+          for file in _posts/*.md; do
+            if [ -f "$file" ]; then
+              if ! grep -q "title:" "$file" || ! grep -q "date:" "$file"; then
+                echo "Missing required front matter in $file"
+                exit 1
+              fi
+            fi
+          done

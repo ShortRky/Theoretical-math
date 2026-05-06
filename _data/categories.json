@@ -1,0 +1,17 @@
+{
+  "theories": {
+    "name": "Mathematical Theories",
+    "description": "Formal mathematical theories and proofs",
+    "icon": "📐"
+  },
+  "notes": {
+    "name": "Study Notes",
+    "description": "Class notes and study materials",
+    "icon": "📚"
+  },
+  "ideas": {
+    "name": "Ideas & Concepts",
+    "description": "Original ideas and brainstorming",
+    "icon": "💡"
+  }
+}

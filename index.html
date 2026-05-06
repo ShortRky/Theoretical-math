@@ -1,2 +1,42 @@
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
- 
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <h2>Welcome to the Open Idea Repository</h2>
+  <p>A collaborative knowledge library for mathematical theories, study notes, and original ideas.</p>
+  <a href="{{ site.baseurl }}/ideas/_submissions/template" class="button">Submit Your Idea</a>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>📚 Mathematical Theories</h3>
+    <p>Explore formal mathematical theories and proofs with full MathJax support.</p>
+    <a href="{{ site.baseurl }}/theories/">Browse Theories</a>
+  </div>
+  
+  <div class="feature-card">
+    <h3>📝 Study Notes</h3>
+    <p>Access community-contributed study notes and educational materials.</p>
+    <a href="{{ site.baseurl }}/notes/">Browse Notes</a>
+  </div>
+  
+  <div class="feature-card">
+    <h3>💡 Ideas & Concepts</h3>
+    <p>Discover original ideas and contribute your own insights.</p>
+    <a href="{{ site.baseurl }}/ideas/">Browse Ideas</a>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <h2>Recent Contributions</h2>
+  <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <span class="meta">{{ post.date | date: "%b %d, %Y" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
